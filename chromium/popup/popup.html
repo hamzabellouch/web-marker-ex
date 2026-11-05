@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Marker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wm-popup-container">
+    <!-- Page Info & Stats -->
+    <section class="wm-stats-bar">
+      <div class="wm-stat-item">
+        <span class="wm-stat-label">Highlights on this page:</span>
+        <span class="wm-stat-count" id="highlightCount">0</span>
+      </div>
+      <div class="wm-stats-actions">
+        <button id="exportBtn" class="wm-icon-btn" title="Export highlights as Markdown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </button>
+        <button id="clearAllBtn" class="wm-icon-btn danger" title="Clear all highlights on this page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Highlights List -->
+    <main class="wm-content">
+      <div id="highlightsList" class="wm-highlights-list">
+        <!-- Rendered dynamically -->
+      </div>
+      <div id="emptyState" class="wm-empty-state">
+        <h3>No highlights yet</h3>
+        <p>Select any text on this webpage and click the highlighter marker to color it!</p>
+      </div>
+    </main>
+
+    <!-- Footer with Shortcut & Two Square Action Buttons -->
+    <footer class="wm-footer">
+      <div class="wm-shortcut-hint">
+        <span class="wm-kbd">Alt</span> + <span class="wm-kbd">S</span> to highlight
+      </div>
+      <div class="wm-footer-actions">
+        <!-- Yellow Square: Direct Pen Mode Button -->
+        <button class="wm-square-btn wm-btn-yellow" id="footerPenBtn" title="Direct Pen Mode (Click to highlight on webpage)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 13.5 L7.5 11 M5 13.5 L5 17.5 L9 17.5 L11.5 15 M7.5 11 L11.5 15 M7.5 11 L13 5.5 M11.5 15 L17 9.5"/>
+          </svg>
+        </button>
+        <!-- Eye Square: Toggle Highlights Visibility -->
+        <button class="wm-square-btn wm-btn-eye" id="toggleVisibilityBtn" title="Hide highlights on webpage">
+          <!-- Normal Eye Icon (Visible) -->
+          <svg class="wm-eye-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <!-- Eye Struck Through Icon (Hidden / Crossed Out) -->
+          <svg class="wm-eye-icon-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

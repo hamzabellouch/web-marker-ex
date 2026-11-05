@@ -1,0 +1,364 @@
+/* Web Marker - Popup Styling */
+
+:root {
+  --bg-primary: #13151a;
+  --bg-secondary: #1a1d24;
+  --bg-card: #20242d;
+  --border-color: #2e333d;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent-yellow: #ffff54;
+  --accent-blue: #3b82f6;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  width: 340px;
+  max-height: 520px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.wm-popup-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  max-height: 500px;
+}
+
+/* Top Stats Bar */
+.wm-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 12.5px;
+}
+
+.wm-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.wm-stat-count {
+  font-weight: 700;
+  background: #272c37;
+  color: #f3f4f6;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.wm-stats-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wm-icon-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  border-radius: 5px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transform: none !important;
+}
+
+.wm-icon-btn:hover {
+  background: #2a303c;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.wm-icon-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.wm-icon-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Content & List */
+.wm-content {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 380px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wm-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wm-content::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.wm-content::-webkit-scrollbar-thumb {
+  background: #2d3340;
+  border-radius: 3px;
+}
+
+.wm-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Highlight Card */
+.wm-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+  transform: none !important;
+}
+
+.wm-card:hover {
+  border-color: #4b5563;
+  transform: none !important;
+}
+
+.wm-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wm-card-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.wm-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.wm-card-tag {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.wm-card-text {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #e5e7eb;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wm-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wm-card-time {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.wm-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Empty State */
+.wm-empty-state {
+  display: none;
+  flex: 1;
+  width: 100%;
+  min-height: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin: auto 0;
+  color: var(--text-secondary);
+}
+
+.wm-empty-state h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.wm-empty-state p {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.wm-footer {
+  padding: 8px 14px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wm-shortcut-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wm-kbd {
+  background: #292e3a;
+  border: 1px solid #3b4252;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 10px;
+  color: #d1d5db;
+  font-weight: 600;
+}
+
+/* Two Square Buttons in Footer */
+.wm-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wm-square-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  padding: 0;
+  outline: none;
+  flex-shrink: 0;
+  transform: none !important;
+}
+
+.wm-square-btn:hover {
+  transform: none !important;
+}
+
+.wm-square-btn:active {
+  transform: none !important;
+}
+
+/* Yellow Square Button */
+.wm-btn-yellow {
+  background-color: #fef08a; /* Soft pastel yellow */
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.wm-btn-yellow:hover {
+  background-color: #fef9c3;
+  box-shadow: 0 4px 12px rgba(254, 240, 138, 0.45);
+}
+
+.wm-btn-yellow svg {
+  width: 18px;
+  height: 18px;
+  stroke: #111827;
+}
+
+/* Eye Square Button */
+.wm-btn-eye {
+  background-color: #252a36;
+  border: 1px solid #374151;
+  color: #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.wm-btn-eye:hover {
+  background-color: #2e3544;
+  border-color: #4b5563;
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.wm-btn-eye svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* Eye visibility toggling: Normal Eye vs Slashed Eye */
+.wm-btn-eye .wm-eye-icon-open {
+  display: block;
+}
+
+.wm-btn-eye .wm-eye-icon-closed {
+  display: none;
+}
+
+/* State when Eye is crossed out (highlights are hidden) */
+.wm-btn-eye.is-hidden {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+.wm-btn-eye.is-hidden:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #fca5a5;
+  box-shadow: 0 3px 8px rgba(239, 68, 68, 0.25);
+}
+
+.wm-btn-eye.is-hidden .wm-eye-icon-open {
+  display: none;
+}
+
+.wm-btn-eye.is-hidden .wm-eye-icon-closed {
+  display: block;
+}

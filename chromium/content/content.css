@@ -1,0 +1,104 @@
+/* Web Marker - Highlight Styles for Webpage DOM */
+
+/*
+  Pixel-perfect text selection reproduction:
+  Preserves the exact font-size, line-height, font-family, font-weight,
+  and layout of the original text. No padding, margins, or curves are added so
+  surrounding text does not shift, behaving identically to native browser selection.
+*/
+.web-marker-highlight,
+mark.web-marker-highlight,
+span.web-marker-highlight {
+  display: inline !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  word-spacing: inherit !important;
+  text-transform: inherit !important;
+  text-decoration: inherit !important;
+  vertical-align: baseline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important; /* Straight vertical sides - no curves */
+  outline: none !important;
+  box-shadow: none !important;
+  box-decoration-break: slice !important;
+  -webkit-box-decoration-break: slice !important;
+  cursor: pointer;
+  box-sizing: border-box !important;
+  transition: filter 0.12s ease;
+}
+
+.web-marker-highlight:hover,
+mark.web-marker-highlight:hover,
+span.web-marker-highlight:hover {
+  filter: brightness(0.93);
+}
+
+/* Dark mode host adaptation */
+@media (prefers-color-scheme: dark) {
+  .web-marker-highlight:hover,
+  mark.web-marker-highlight:hover,
+  span.web-marker-highlight:hover {
+    filter: brightness(1.1);
+  }
+}
+
+/* Neutral inline flow wrapper to prevent flex / grid parents from breaking words */
+.web-marker-flow {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font: inherit !important;
+  line-height: inherit !important;
+  vertical-align: baseline !important;
+  background: transparent !important;
+}
+
+/* Focus indicator when navigating from popup list (No layout shift!) */
+.web-marker-highlight.web-marker-focused,
+mark.web-marker-highlight.web-marker-focused,
+span.web-marker-highlight.web-marker-focused {
+  outline: 2px dashed #3b82f6 !important;
+  outline-offset: 1px !important;
+  animation: webMarkerPulse 1.2s ease-in-out 2;
+}
+
+@keyframes webMarkerPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+/* Hidden highlights state when Eye is struck through */
+.web-marker-highlights-hidden .web-marker-highlight,
+html.web-marker-highlights-hidden .web-marker-highlight,
+body.web-marker-highlights-hidden .web-marker-highlight,
+html.web-marker-highlights-hidden mark.web-marker-highlight,
+body.web-marker-highlights-hidden mark.web-marker-highlight,
+html.web-marker-highlights-hidden span.web-marker-highlight,
+body.web-marker-highlights-hidden span.web-marker-highlight {
+  background-color: transparent !important;
+  color: inherit !important;
+  cursor: inherit !important;
+  filter: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.web-marker-highlights-hidden .web-marker-highlight:hover,
+html.web-marker-highlights-hidden .web-marker-highlight:hover,
+body.web-marker-highlights-hidden .web-marker-highlight:hover {
+  filter: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}

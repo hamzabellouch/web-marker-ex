@@ -1,0 +1,71 @@
+# Operating System Files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor & IDE Directories / Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Environment Variables, Secrets & Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pkcs12
+*.pfx
+*.p12
+*.cer
+*.crt
+credentials.json
+token.json
+id_rsa*
+*.pub
+
+# Compressed archives & package releases
+*.crx
+*.xpi
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Node / Package manager (if ever used)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs & caches
+dist/
+build/
+out/
+.cache/
+tmp/
+temp/
+_metadata/
+
+# Log files
+*.log
+
+# AI / Assistant Scratchpads
+.system_generated/
+scratch/
