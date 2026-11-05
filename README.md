@@ -2,6 +2,9 @@
 
 A modern, lightweight, privacy-first, on-device browser extension that empowers users to seamlessly select, highlight, organize, annotate, and export web text 100% locally on their own computer with vibrant and pastel palettes, rich color picker controls, and an ultra-fast Direct Pen Mode.
 
+<img width="2752" height="1536" alt="web-marker" src="https://github.com/user-attachments/assets/275248d7-f94d-482d-916a-cc8739b41f0b" />
+
+
 Compatible with all major browsers: **Chrome, Brave, Edge, Opera, Vivaldi (Chromium-based)** and **Mozilla Firefox**.
 
 
